@@ -1,20 +1,4 @@
-# Base image for your application
-FROM java:17
+FROM java:8
+ADD target/Supermart-0.0.1-SNAPSHOT.jar Supermart-0.0.1-SNAPSHOT.jar
+ENTRYPOINT [ "java","-jar","Supermart-0.0.1-SNAPSHOT.jar" ]
 
-# Set working directory
-WORKDIR /app
-
-# Copy your application code
-COPY . .
-
-# Install any dependencies (if needed)
-#RUN apt-get update && apt-get install -y maven
-
-# Build your application (adjust command based on your build process)
-#RUN mvn clean install
-
-# Expose port (if your application listens on a specific port)
-EXPOSE 8989
-
-# Command to run your application (adjust based on your application)
-CMD ["java", "-jar", "Supermart-0.0.1-SNAPSHOT.jar"]
