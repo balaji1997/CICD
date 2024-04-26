@@ -1,3 +1,3 @@
-FROM openjdk
+FROM openjdk17
 ADD target/Supermart-0.0.1-SNAPSHOT.jar Supermart-0.0.1-SNAPSHOT.jar
 ENTRYPOINT ["java", "-jar", "Supermart-0.0.1-SNAPSHOT.jar"]
