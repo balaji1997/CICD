@@ -38,7 +38,7 @@ class SupermartControllerTest {
     }
 
     @Test
-    void getAllProducts_ReturnsListOfProducts() {
+    void getAllProductsReturnsListOfProducts() {
         List<Supermart> productList = new ArrayList<>();
         productList.add(new Supermart(1L, "Product 1", 10.0));
         productList.add(new Supermart(2L, "Product 2", 20.0));
@@ -52,7 +52,7 @@ class SupermartControllerTest {
     }
     
     @Test
-    void getAllProducts_ReturnsEmptyOfProducts() {
+    void getAllProductsReturnsEmptyOfProducts() {
         List<Supermart> productList = new ArrayList<>();
 
         when(supermartRepo.findAll()).thenReturn(productList);
@@ -63,7 +63,7 @@ class SupermartControllerTest {
     }
 
     @Test
-    void getProductById_WithValidId_ReturnsProduct() {
+    void getProductByIdWithValidIdReturnsProduct() {
         long id = 1L;
         Supermart product = new Supermart(id, "Product 1", 10.0);
 
@@ -76,7 +76,7 @@ class SupermartControllerTest {
     }
 
     @Test
-    void getProductById_WithInvalidId_ReturnsNotFoundStatus() {
+    void getProductByIdWithInvalidIdReturnsNotFoundStatus() {
         long id = 1L;
 
         when(supermartRepo.findById(id)).thenReturn(Optional.empty());
@@ -87,7 +87,7 @@ class SupermartControllerTest {
     }
 
     @Test
-    void addProduct_ReturnsAddedProduct() {
+    void addProductReturnsAddedProduct() {
         Supermart productToAdd = new Supermart(1L, "Product 1", 10.0);
 
         when(supermartRepo.save(productToAdd)).thenReturn(productToAdd);
@@ -99,7 +99,7 @@ class SupermartControllerTest {
     }
 
     @Test
-    void updateProductById_WithValidId_ReturnsUpdatedProduct() {
+    void updateProductByIdWithValidIdReturnsUpdatedProduct() {
         long id = 1L;
         Supermart oldProduct = new Supermart(id, "Old Product", 20.0);
         Supermart newProductData = new Supermart(id, "New Product", 30.0);
@@ -115,7 +115,7 @@ class SupermartControllerTest {
     }
 
     @Test
-    void updateProductById_WithInvalidId_ReturnsNotFoundStatus() {
+    void updateProductByIdWithInvalidIdReturnsNotFoundStatus() {
         long id = 1L;
         Supermart newProductData = new Supermart(id, "New Product", 30.0);
 
@@ -127,7 +127,7 @@ class SupermartControllerTest {
     }
 
     @Test
-    void deleteProductById_WithValidId_ReturnsOkStatus() {
+    void deleteProductByIdWithValidIdReturnsOkStatus() {
         long id = 1L;
 
         ResponseEntity<HttpStatus> response = supermartController.deleteProductById(id);
@@ -136,14 +136,14 @@ class SupermartControllerTest {
         verify(supermartRepo, times(1)).deleteById(id);
     }
     @Test
-    void createSupermartInstance_NoArgsConstructor() {
+    void createSupermartInstanceNoArgsConstructor() {
         Supermart product = new Supermart();
 
         assertNotNull(product);
         
     }
     @Test
-    void verifySetterGetterMethods_ForSupermartProperties() {
+    void verifySetterGetterMethodsForSupermartProperties() {
         Supermart product = new Supermart();
         // Test setter methods
         product.setId(1L);
