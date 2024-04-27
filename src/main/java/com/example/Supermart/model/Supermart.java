@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @Setter
 @Getter
-@ToString
+
 public class Supermart {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
